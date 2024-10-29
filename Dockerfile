@@ -26,4 +26,4 @@ USER dockeruser
 EXPOSE 3000
 
 # Comando que vai executar o container "briefercloud/briefer" ao iniciar o contêiner
-CMD ["sh", "-c", "sudo docker run -d -p 3000:3000 -v briefer_psql_data:/var/lib/postgresql/data -v briefer_jupyter_data:/home/jupyteruser -v briefer_briefer_data:/home/briefer briefercloud/briefer && tail -f /dev/null"]
+CMD ["sh", "-c", "docker run -d -p 3000:3000 -v briefer_psql_data:/var/lib/postgresql/data -v briefer_jupyter_data:/home/jupyteruser -v briefer_briefer_data:/home/briefer briefercloud/briefer && tail -f /dev/null"]
