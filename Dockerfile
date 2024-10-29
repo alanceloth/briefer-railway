@@ -19,7 +19,7 @@ RUN useradd -m dockeruser && \
     echo "dockeruser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
     usermod -aG docker dockeruser
 
-RUN service docker start
+RUN dockerd
 
 # Mude para o novo usuário
 USER dockeruser
