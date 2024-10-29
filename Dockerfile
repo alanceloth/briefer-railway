@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
 
 # Instale o Docker CLI para que o Briefer possa utilizá-lo
 RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+RUN dockerd-rootless-setuptool.sh install
 
 # Configure o diretório de trabalho
 WORKDIR /app
