@@ -1,7 +1,7 @@
 # Use uma imagem base do Ubuntu
 FROM ubuntu:latest
 
-# Instala pacotes necessários e Docker
+# Instale pacotes necessários e Docker
 RUN apt-get update && \
     apt-get install -y \
     curl \
@@ -17,5 +17,7 @@ RUN apt-get update && \
 # Exponha a porta 3000
 EXPOSE 3000
 
-# Execute o comando do Docker para rodar o container "briefercloud/briefer"
-CMD ["sh", "-c", "docker run -d -p 3000:3000 -v briefer_psql_data:/var/lib/postgresql/data -v briefer_jupyter_data:/home/jupyteruser -v briefer_briefer_data:/home/briefer briefercloud/briefer"]
+# Inicie o Docker daemon e execute o container `briefercloud/briefer`
+CMD service docker start && \
+    docker run -d -p 3000:3000 -v briefer_psql_data:/var/lib/postgresql/data -v briefer_jupyter_data:/home/jupyteruser -v briefer_briefer_data:/home/briefer briefercloud/briefer && \
+    tail -f /dev/null  # Mantém o container em execução
