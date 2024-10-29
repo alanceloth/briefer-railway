@@ -19,8 +19,8 @@ RUN useradd -m dockeruser && \
     echo "dockeruser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
     usermod -aG docker dockeruser
 
-RUN sudo systemctl start docker
-RUN sudo systemctl enable docker
+RUN systemctl start docker
+RUN systemctl enable docker
 
 # Mude para o novo usuário
 USER dockeruser
