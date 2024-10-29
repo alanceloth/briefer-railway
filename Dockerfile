@@ -12,6 +12,9 @@ RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 # Instala o Briefer e outras dependências
 RUN pip install --no-cache-dir briefer docker requests
 
+# Adiciona o diretório de instalação do pip ao PATH
+ENV PATH="/root/.local/bin:$PATH"
+
 # Define a pasta de trabalho
 WORKDIR /app
 
@@ -35,6 +38,9 @@ ENV LOG_LEVEL="info" \
     JUPYTER_HOST="localhost" \
     JUPYTER_PORT="8888" \
     JUPYTER_TOKEN="jupyter_token"
+
+# Confirma a instalação do briefer e a localização do executável
+RUN which briefer
 
 # Configura o contêiner para executar o comando Briefer
 CMD ["briefer"]
