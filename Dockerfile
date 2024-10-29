@@ -39,8 +39,3 @@ ENV LOG_LEVEL="info" \
     JUPYTER_PORT="8888" \
     JUPYTER_TOKEN="jupyter_token"
 
-# Confirma a instalação do briefer e a localização do executável
-RUN which briefer
-
-# Configura o contêiner para executar o comando Briefer
-CMD ["/usr/local/bin/briefer"]
