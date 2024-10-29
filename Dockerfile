@@ -43,4 +43,4 @@ ENV LOG_LEVEL="info" \
 RUN which briefer
 
 # Configura o contêiner para executar o comando Briefer
-RUN briefer
+CMD ["/root/.local/bin/briefer"]
